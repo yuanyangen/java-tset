@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.ostermiller:ostermillerutils:1.08.02">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ostermiller/ostermillerutils/1.08.02/ostermillerutils-1.08.02.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ostermiller/ostermillerutils/1.08.02/ostermillerutils-1.08.02-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ostermiller/ostermillerutils/1.08.02/ostermillerutils-1.08.02-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

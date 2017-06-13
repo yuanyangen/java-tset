@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.vdian.vap:vap-client:1.1.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/vdian/vap/vap-client/1.1.1-SNAPSHOT/vap-client-1.1.1-20161101.032857-7.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/vdian/vap/vap-client/1.1.1-SNAPSHOT/vap-client-1.1.1-20161101.032857-7-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/vdian/vap/vap-client/1.1.1-SNAPSHOT/vap-client-1.1.1-20161101.032857-7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

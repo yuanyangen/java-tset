@@ -8,11 +8,17 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 public class UnicodeSerializer extends JsonSerializer<String> {
 
     private static final char[] HEX_CHARS = "0123456789abcdef".toCharArray();
     private static final int[] ESCAPE_CODES = CharTypes.get7BitOutputEscapes();
+    private static final Set<Character> SLASH_CHARS = new HashSet();
+    static {
+        SLASH_CHARS.add('/');
+    }
 
     private void writeUnicodeEscape(JsonGenerator gen, char c) throws IOException {
         gen.writeRaw('\\');
@@ -21,6 +27,11 @@ public class UnicodeSerializer extends JsonSerializer<String> {
         gen.writeRaw(HEX_CHARS[(c >> 8) & 0xF]);
         gen.writeRaw(HEX_CHARS[(c >> 4) & 0xF]);
         gen.writeRaw(HEX_CHARS[c & 0xF]);
+    }
+
+    private void addSlash(JsonGenerator gen, char c) throws IOException {
+        gen.writeRaw('\\');
+        gen.writeRaw(c);
     }
 
     private void writeShortEscape(JsonGenerator gen, char c) throws IOException {
@@ -43,7 +54,9 @@ public class UnicodeSerializer extends JsonSerializer<String> {
         }
         gen.writeRaw('"');//写入JSON中字符串的开头引号
         for (char c : str.toCharArray()) {
-            if (c >= 0x80) {
+            if (SLASH_CHARS.contains(c)) {
+                addSlash(gen, c);
+            } else if (c >= 0x80) {
                 writeUnicodeEscape(gen, c); // 为所有非ASCII字符生成转义的unicode字符
             } else {
                 // 为ASCII字符中前128个字符使用转义的unicode字符
@@ -51,7 +64,7 @@ public class UnicodeSerializer extends JsonSerializer<String> {
                 if (code == 0) {
                     gen.writeRaw(c); // 此处不用转义
                 } else if (code < 0) {
-                    writeUnicodeEscape(gen, (char) (-code - 1)); // 通用转义字符
+                    writeUnicodeEscape(gen, c); // 通用转义字符
                 } else {
                     writeShortEscape(gen, (char) code); // 短转义字符 (\n \t ...)
                 }

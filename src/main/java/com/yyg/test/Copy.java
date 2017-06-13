@@ -14,9 +14,11 @@ public class Copy {
     private Logger logger = LoggerFactory.getLogger(Copy.class);
 
     public void beatCopySpring() {
-        TestType0 obj0 =  new TestType0();
+        final TestType0 obj0 =  new TestType0();
         obj0.setFiled0("0");
         obj0.setFiled1("1");
+        obj0.setFiled1("2");
+        obj0.setFiled1("3");
         obj0.setFiled2("2");
         obj0.setFiled3("3");
         obj0.setFiled4("4");

@@ -10,16 +10,15 @@ import java.util.HashMap;
  * Created by yuanyangen on 17/4/15.
  */
 public class Json {
-
     public void jacksonPerfomanceTest (String input) {
-        ObjectMapper objectMapper = new ObjectMapper();
         try {
 
             System.out.println("jackson ");
             Date d = new Date();
             Long cur = d.getTime();
             System.out.println(cur);
-            for(int i= 0; i< 1000000; i++) {
+            for(int i= 0; i< 100000; i++) {
+                ObjectMapper objectMapper = new ObjectMapper();
                 HashMap<String, String> ret = objectMapper.readValue(input.getBytes(), HashMap.class);
             }
 

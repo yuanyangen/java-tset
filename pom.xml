@@ -51,12 +51,28 @@
         <dependency>
             <groupId>com.weidian.wdp</groupId>
             <artifactId>wdp-common</artifactId>
-            <version>1.2.4-SNAPSHOT</version>
+            <version>1.2.5-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-actor_2.12</artifactId>
+            <version>2.5.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-testkit_2.12</artifactId>
+            <version>2.5.2</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
         </dependency>
 
 
 
-    </dependencies>
+
+</dependencies>
     <build>
         <plugins>
             <plugin>
